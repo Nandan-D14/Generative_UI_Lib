@@ -10,7 +10,7 @@ interface SpotlightCardProps {
 export const SpotlightCard: React.FC<SpotlightCardProps> = ({ 
   children, 
   className, 
-  spotlightColor = 'rgba(255, 255, 255, 0.15)' 
+  spotlightColor = 'rgba(255, 11, 85, 0.15)' 
 }) => {
   const divRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });

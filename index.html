@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Generative UI Lib</title>
+    <meta name="description" content="A premium collection of animated React components built with Tailwind CSS and Framer Motion. Copy, paste, and customize." />
+    <title>React UI Components - Premium Animated Library</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -11,12 +12,22 @@
         theme: {
           extend: {
             colors: {
-              background: '#030303',
-              surface: '#0a0a0a',
-              primary: '#8b5cf6', // Violet-500
-              'primary-dark': '#7c3aed',
-              secondary: '#a1a1aa',
-              border: '#27272a',
+              background: '#000000',
+              surface: '#121212',
+              primary: {
+                DEFAULT: '#FF0B55',
+                dark: '#CF0F47',
+                light: '#FF5C85',
+              },
+              secondary: '#FFDEDE',
+              border: '#404040',
+              accent: {
+                blue: '#3b82f6',
+                purple: '#a855f7',
+                pink: '#ec4899',
+                green: '#10b981',
+                amber: '#f59e0b',
+              }
             },
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
@@ -24,6 +35,8 @@
             },
             animation: {
               'blob': 'blob 7s infinite',
+              'shimmer': 'shimmer 2s linear infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
             },
             keyframes: {
               blob: {
@@ -31,7 +44,19 @@
                 '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
                 '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
                 '100%': { transform: 'translate(0px, 0px) scale(1)' },
+              },
+              shimmer: {
+                '0%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(100%)' },
+              },
+              glow: {
+                '0%': { opacity: '0.5' },
+                '100%': { opacity: '1' },
               }
+            },
+            boxShadow: {
+              'glow': '0 0 20px rgba(139, 92, 246, 0.3)',
+              'glow-lg': '0 0 40px rgba(139, 92, 246, 0.4)',
             }
           },
         },
@@ -40,7 +65,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
       body {
-        background-color: #030303;
+        background-color: #000000;
         color: #ffffff;
         font-family: 'Inter', sans-serif;
       }
@@ -58,6 +83,21 @@
       }
       ::-webkit-scrollbar-thumb:hover {
         background: #3f3f46; 
+      }
+      
+      /* Custom scrollbar for dashboard */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #27272a;
+        border-radius: 3px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #3f3f46;
       }
     </style>
   <script type="importmap">
@@ -78,5 +118,6 @@
 </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
