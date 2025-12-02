@@ -18,7 +18,7 @@ export const ModernSaaS: React.FC = () => {
       <footer className="py-12 border-t border-border bg-surface/30">
         <div className="max-w-7xl mx-auto px-4 text-center">
            <p className="text-secondary">
-             © 2025 React UI Library. All rights reserved.
+             © 2025 Premium UI Library. All rights reserved.
            </p>
         </div>
       </footer>

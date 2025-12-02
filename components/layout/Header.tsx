@@ -16,6 +16,18 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [stars, setStars] = useState<string | number>('0');
+
+  useEffect(() => {
+    fetch('https://api.github.com/repos/Nandan-D14/Premium-UI')
+      .then(res => res.json())
+      .then(data => {
+        if (data.stargazers_count) {
+          setStars(data.stargazers_count);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   // Combine all searchable items
   const searchItems = useMemo(() => {
@@ -28,7 +40,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
     }));
 
     const docs = [
-      { type: 'doc', title: 'Introduction', description: 'Getting started with React UI', path: '/docs/introduction', category: 'Documentation' },
+      { type: 'doc', title: 'Introduction', description: 'Getting started with Premium UI', path: '/docs/introduction', category: 'Documentation' },
       { type: 'doc', title: 'Installation', description: 'How to install and use', path: '/docs/installation', category: 'Documentation' },
       { type: 'template', title: 'SaaS Landing', description: 'Complete SaaS landing page template', path: '/components/modern-saas', category: 'Templates' },
     ];
@@ -100,7 +112,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
               <div className="h-8 w-8 rounded-lg bg-gradient-to-tr from-primary to-blue-500 flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-shadow">
                 <span className="text-white text-sm font-bold">UI</span>
               </div>
-              <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">React UI</span>
+              <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Premium UI</span>
             </Link>
           </div>
 
@@ -134,12 +146,14 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
              </button>
 
              <a 
-              href="#" 
+              href="https://github.com/Nandan-D14/Premium-UI"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 rounded-full bg-surface border border-border px-4 py-1.5 text-xs font-medium text-white hover:bg-white/5 transition-colors"
              >
               <Github size={14} />
               <span>Star on GitHub</span>
-              <span className="ml-1 text-secondary">★ 2.4k</span>
+              <span className="ml-1 text-secondary">★ {stars}</span>
              </a>
           </div>
         </div>
@@ -247,7 +261,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
                    select
                  </span>
                </div>
-               <span>React UI</span>
+               <span>Premium UI</span>
              </div>
           )}
         </div>

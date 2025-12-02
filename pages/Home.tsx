@@ -24,7 +24,7 @@ export const Home: React.FC = () => {
           <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
             <SplitText text="Build Beautiful" className="block text-white" delay={0.03} />
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-purple-500">
-               React Interfaces
+               Premium Interfaces
             </span>
           </h1>
           
