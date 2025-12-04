@@ -39,8 +39,8 @@ export const Pricing = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-white mb-4">Simple, transparent pricing</h2>
-          <p className="text-secondary max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold text-foreground mb-4">Simple, transparent pricing</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             Choose the plan that's right for you. No hidden fees.
           </p>
         </div>
@@ -55,27 +55,27 @@ export const Pricing = () => {
               transition={{ delay: index * 0.1 }}
             >
               <TiltedCard 
-                className={`h-full p-8 flex flex-col ${plan.popular ? 'border-primary/50 shadow-lg shadow-primary/10' : 'border-border'}`}
+                className={`h-full p-8 flex flex-col bg-card ${plan.popular ? 'border-primary shadow-lg shadow-primary/10' : 'border-border'}`}
                 tiltIntensity={5}
               >
                 {plan.popular && (
-                  <div className="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg flex items-center gap-1">
+                  <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg flex items-center gap-1">
                     <Zap size={12} /> POPULAR
                   </div>
                 )}
                 
                 <div className="mb-8">
-                  <h3 className="text-xl font-semibold text-white mb-2">{plan.name}</h3>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">{plan.name}</h3>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold text-white">{plan.price}</span>
-                    <span className="text-secondary">/month</span>
+                    <span className="text-4xl font-bold text-foreground">{plan.price}</span>
+                    <span className="text-muted-foreground">/month</span>
                   </div>
-                  <p className="text-secondary text-sm mt-2">{plan.description}</p>
+                  <p className="text-muted-foreground text-sm mt-2">{plan.description}</p>
                 </div>
 
                 <ul className="space-y-4 mb-8 flex-1">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-secondary/80">
+                    <li key={i} className="flex items-center gap-3 text-sm text-muted-foreground">
                       <Check size={16} className="text-primary shrink-0" />
                       {feature}
                     </li>
@@ -84,7 +84,7 @@ export const Pricing = () => {
 
                 <Button 
                   variant={plan.popular ? 'default' : 'outline'} 
-                  className="w-full"
+                  className={`w-full ${plan.popular ? 'shadow-md shadow-primary/25' : ''}`}
                 >
                   {plan.cta}
                 </Button>

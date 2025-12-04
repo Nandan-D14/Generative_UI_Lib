@@ -30,11 +30,11 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-surface/20">
+    <section className="py-24 bg-background">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-          <p className="text-secondary">
+          <h2 className="text-3xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
+          <p className="text-muted-foreground">
             Everything you need to know about the library.
           </p>
         </div>
@@ -47,15 +47,15 @@ export const FAQ = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="border border-border rounded-xl bg-surface overflow-hidden"
+              className="border border-border rounded-xl bg-card overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
+                className="w-full flex items-center justify-between p-6 text-left hover:bg-muted/50 transition-colors"
               >
-                <span className="text-white font-medium pr-8">{faq.question}</span>
+                <span className="text-foreground font-medium pr-8">{faq.question}</span>
                 <span className={cn(
-                  "text-secondary transition-transform duration-300",
+                  "text-muted-foreground transition-transform duration-300",
                   openIndex === index ? "rotate-180" : ""
                 )}>
                   {openIndex === index ? <Minus size={20} /> : <Plus size={20} />}
@@ -70,7 +70,7 @@ export const FAQ = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
                   >
-                    <div className="px-6 pb-6 text-secondary leading-relaxed border-t border-border/50 pt-4">
+                    <div className="px-6 pb-6 text-muted-foreground leading-relaxed border-t border-border/50 pt-4">
                       {faq.answer}
                     </div>
                   </motion.div>

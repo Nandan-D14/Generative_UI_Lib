@@ -5,6 +5,8 @@ import { ComponentPreview } from '../components/landing/ComponentPreview';
 import { Footer } from '../components/layout/Footer';
 import { Hero } from '../components/landing/Hero';
 import { FeatureGrid } from '../components/landing/FeatureGrid';
+import { Testimonials } from '../components/landing/Testimonials';
+import { FAQ } from '../components/landing/FAQ';
 import { ArrowRight, Copy, Settings, Zap } from 'lucide-react';
 
 export const Home: React.FC = () => {
@@ -13,103 +15,102 @@ export const Home: React.FC = () => {
       {/* Hero Section */}
       <Hero />
 
-      {/* Stats / Trusted By Section */}
-      <div className="border-y border-border bg-card/50 backdrop-blur-sm overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
-          {/* Marquee Effect */}
-          <div className="flex gap-12 animate-[shimmer_20s_linear_infinite] hover:[animation-play-state:paused] w-max">
-            {[...Array(2)].map((_, setIndex) => (
-              <div key={setIndex} className="flex gap-12 shrink-0">
-                {[
-                  { label: 'Components', value: '50+' },
-                  { label: 'Downloads', value: '10k+' },
-                  { label: 'GitHub Stars', value: '2.5k' },
-                  { label: 'Open Source', value: '100%' },
-                  { label: 'Community', value: '5k+' },
-                  { label: 'Updates', value: 'Weekly' },
-                ].map((stat, i) => (
-                  <div key={i} className="flex items-center gap-4 px-8 border-r border-border/50 last:border-0">
-                    <div className="text-3xl md:text-4xl font-bold text-foreground">{stat.value}</div>
-                    <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-          
-          {/* Gradient Masks for Fade Effect */}
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent pointer-events-none" />
-        </div>
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl px-4 pb-32 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         {/* Feature Grid */}
         <FeatureGrid />
         
         {/* How It Works Section */}
-        <div className="py-24 relative">
-           <div className="text-center mb-16">
-             <h2 className="text-3xl font-bold text-foreground mb-4">How it works</h2>
-             <p className="text-muted-foreground max-w-2xl mx-auto">
-               No npm install needed. Just copy, paste, and ship.
+        <div className="py-32 relative max-w-7xl mx-auto">
+           <div className="text-center mb-20">
+             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
+               From idea to production <span className="text-primary">in seconds</span>
+             </h2>
+             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+               Stop wrestling with complex setups. Our workflow is designed for speed and simplicity.
              </p>
            </div>
            
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-             {/* Connecting Line (Desktop) */}
-             <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0" />
-
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
              {[
                { 
-                 icon: <SearchIcon className="w-6 h-6" />, 
-                 title: '1. Browse', 
-                 desc: 'Explore our collection of components and choose what fits your needs.' 
+                 title: 'Browse', 
+                 desc: 'Explore our extensive library of premium, animated components.',
+                 icon: <SearchIcon className="w-8 h-8 text-white" />,
+                 gradient: 'from-blue-500/20 to-cyan-500/20',
+                 border: 'group-hover:border-blue-500/50'
                },
                { 
-                 icon: <Copy className="w-6 h-6" />, 
-                 title: '2. Copy', 
-                 desc: 'Copy the code directly to your clipboard with a single click.' 
+                 title: 'Copy', 
+                 desc: 'One click to copy the code. No npm install required.',
+                 icon: <Copy className="w-8 h-8 text-white" />,
+                 gradient: 'from-violet-500/20 to-fuchsia-500/20',
+                 border: 'group-hover:border-violet-500/50'
                },
                { 
-                 icon: <Zap className="w-6 h-6" />, 
-                 title: '3. Ship', 
-                 desc: 'Paste into your project, customize if needed, and deploy.' 
+                 title: 'Ship', 
+                 desc: 'Paste into your project and deploy. It just works.',
+                 icon: <Zap className="w-8 h-8 text-white" />,
+                 gradient: 'from-emerald-500/20 to-lime-500/20',
+                 border: 'group-hover:border-emerald-500/50'
                }
              ].map((step, i) => (
-               <div key={i} className="relative flex flex-col items-center text-center z-10">
-                 <div className="w-24 h-24 rounded-2xl bg-card border border-border shadow-lg flex items-center justify-center text-primary mb-6 group hover:scale-110 transition-transform duration-300">
-                   <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
+               <div key={i} className="group relative h-full">
+                 <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500`} />
+                 <div className={`relative h-full bg-card/50 backdrop-blur-xl border border-white/10 rounded-2xl p-8 flex flex-col items-start overflow-hidden transition-all duration-300 group-hover:-translate-y-2 ${step.border}`}>
+                   
+                   {/* Large Watermark Number */}
+                   <div className="absolute -right-4 -top-4 text-9xl font-black text-foreground/5 select-none z-0">
+                     0{i + 1}
+                   </div>
+
+                   <div className="relative z-10 w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 shadow-inner group-hover:scale-110 transition-transform duration-500">
                      {step.icon}
                    </div>
+                   
+                   <h3 className="relative z-10 text-2xl font-bold text-foreground mb-4">{step.title}</h3>
+                   <p className="relative z-10 text-muted-foreground leading-relaxed text-base">
+                     {step.desc}
+                   </p>
                  </div>
-                 <h3 className="text-xl font-bold text-foreground mb-3">{step.title}</h3>
-                 <p className="text-muted-foreground leading-relaxed max-w-xs">{step.desc}</p>
                </div>
              ))}
            </div>
         </div>
 
         {/* Interactive Preview */}
-        <div className="mt-12">
+        <div className="mt-12 max-w-7xl mx-auto">
            <ComponentPreview />
         </div>
+      </div>
 
-        {/* CTA Section */}
-        <div className="mt-32 mb-20 text-center relative">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/20 blur-[100px] -z-10 rounded-full pointer-events-none" />
-          <h2 className="text-3xl font-bold text-foreground sm:text-5xl mb-6 tracking-tight">
-            Ready to build something amazing?
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-            Start using our components in your next project today. Open source and free to use.
-          </p>
-          <div className="flex justify-center">
-            <Link to="/components">
-              <ShimmerButton className="px-10 py-4 text-lg font-semibold shadow-2xl shadow-primary/20 rounded-full">
-                Explore All Components
-              </ShimmerButton>
-            </Link>
+      {/* Testimonials */}
+      <Testimonials />
+
+      {/* FAQ */}
+      <FAQ />
+
+      {/* CTA Section */}
+      <div className="relative z-10 mx-auto max-w-5xl px-4 pb-24 sm:px-6 lg:px-8">
+        <div className="relative mt-24 rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-b from-white/5 to-black/40 p-12 md:p-24 text-center shadow-2xl">
+          {/* Animated Grid Background */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+          
+          <div className="relative z-10">
+            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-8">
+              Ready to build <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">something amazing?</span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-12">
+              Join thousands of developers building better UIs, faster. 
+              Open source, free forever.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link to="/components">
+                <ShimmerButton className="px-10 py-4 text-lg font-bold shadow-2xl shadow-emerald-500/20 rounded-full">
+                  Start Building Now
+                </ShimmerButton>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

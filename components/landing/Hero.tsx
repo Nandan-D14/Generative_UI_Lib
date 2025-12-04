@@ -12,11 +12,16 @@ export const Hero = () => {
 
   return (
     <div className="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-background perspective-1000">
-      {/* Dynamic Background Matrix */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b98110_1px,transparent_1px),linear-gradient(to_bottom,#10b98110_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-        <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-primary/10 via-transparent to-transparent blur-3xl" />
+      {/* Dynamic Background Beams */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-[50%] -left-[50%] w-[200%] h-[200%] animate-[spin_60s_linear_infinite] opacity-[0.04]">
+           <div className="absolute inset-0 bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,theme(colors.emerald.500)_60deg,theme(colors.blue.500)_120deg,theme(colors.purple.500)_180deg,transparent_240deg)]" />
+        </div>
       </div>
+
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b98110_1px,transparent_1px),linear-gradient(to_bottom,#10b98110_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+      <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-blue-500/5 via-transparent to-transparent blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 text-center pt-20">
         <motion.div
@@ -25,16 +30,16 @@ export const Hero = () => {
           transition={{ duration: 0.5 }}
           className="flex justify-center mb-8"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm text-primary backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:bg-primary/20 transition-all cursor-default animate-pulse-glow">
-            <Sparkles size={14} className="text-primary" />
-            <span className="font-bold tracking-wide">v2.0 Now Available</span>
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-foreground backdrop-blur-md shadow-[0_0_20px_rgba(59,130,246,0.2)] hover:bg-white/10 transition-all cursor-default animate-pulse-glow">
+            <Sparkles size={14} className="text-blue-400" />
+            <span className="font-bold tracking-wide bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">v2.0 Now Available</span>
           </span>
         </motion.div>
 
         <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-foreground mb-8 leading-[0.9]">
           <span className="block text-white drop-shadow-2xl">Build Faster</span>
           <GradientText 
-            colors={["#10b981", "#34d399", "#059669", "#10b981"]} 
+            colors={["#10b981", "#3b82f6", "#8b5cf6", "#10b981"]} 
             animationSpeed={6}
             className="text-transparent bg-clip-text pb-4"
           >
@@ -72,7 +77,7 @@ export const Hero = () => {
           style={{ y: y1, rotateX }}
           className="mt-20 relative w-full max-w-5xl mx-auto perspective-1000 group"
         >
-          <div className="absolute inset-0 bg-primary/20 blur-[100px] -z-10 rounded-full opacity-50 group-hover:opacity-70 transition-opacity duration-700" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-blue-500/20 blur-[100px] -z-10 rounded-full opacity-50 group-hover:opacity-70 transition-opacity duration-700" />
           
           <div className="relative bg-[#09090b] rounded-xl border border-white/10 shadow-2xl overflow-hidden transform transition-transform duration-700 hover:scale-[1.02]">
             {/* Window Chrome */}
@@ -91,7 +96,7 @@ export const Hero = () => {
                   <div className="h-8 w-3/4 bg-white/10 rounded animate-pulse" />
                   <div className="h-4 w-full bg-white/5 rounded animate-pulse delay-75" />
                   <div className="h-4 w-5/6 bg-white/5 rounded animate-pulse delay-150" />
-                  <div className="h-32 w-full bg-primary/5 rounded-lg border border-primary/10 mt-8 relative overflow-hidden group-hover:border-primary/30 transition-colors">
+                  <div className="h-32 w-full bg-gradient-to-br from-primary/10 to-blue-500/10 rounded-lg border border-white/5 mt-8 relative overflow-hidden group-hover:border-white/10 transition-colors">
                      <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent" />
                      <div className="absolute bottom-4 left-4">
                         <div className="h-8 w-24 bg-primary rounded-md shadow-lg shadow-primary/20" />
@@ -99,11 +104,11 @@ export const Hero = () => {
                   </div>
                </div>
                <div className="hidden md:block space-y-3 font-mono text-sm text-muted-foreground/60">
-                  <div className="flex"><span className="text-primary">import</span><span className="text-white ml-2">{`{ Button }`}</span><span className="text-primary ml-2">from</span><span className="text-green-300 ml-2">'@premium/ui'</span></div>
-                  <div className="flex"><span className="text-primary">import</span><span className="text-white ml-2">{`{ Card }`}</span><span className="text-primary ml-2">from</span><span className="text-green-300 ml-2">'@premium/ui'</span></div>
+                  <div className="flex"><span className="text-purple-400">import</span><span className="text-white ml-2">{`{ Button }`}</span><span className="text-purple-400 ml-2">from</span><span className="text-green-300 ml-2">'@premium/ui'</span></div>
+                  <div className="flex"><span className="text-purple-400">import</span><span className="text-white ml-2">{`{ Card }`}</span><span className="text-purple-400 ml-2">from</span><span className="text-green-300 ml-2">'@premium/ui'</span></div>
                   <br />
-                  <div><span className="text-purple-400">export default</span><span className="text-primary ml-2">function</span><span className="text-yellow-300 ml-2">App</span>() {`{`}</div>
-                  <div className="pl-4"><span className="text-primary">return</span> (</div>
+                  <div><span className="text-blue-400">export default</span><span className="text-purple-400 ml-2">function</span><span className="text-yellow-300 ml-2">App</span>() {`{`}</div>
+                  <div className="pl-4"><span className="text-purple-400">return</span> (</div>
                   <div className="pl-8 text-white">{`<Card className="p-8">`}</div>
                   <div className="pl-12 text-white">{`<h1 className="text-4xl">Hello World</h1>`}</div>
                   <div className="pl-12 text-white">{`<Button>Click Me</Button>`}</div>
