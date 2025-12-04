@@ -14,21 +14,32 @@ export const Home: React.FC = () => {
       <Hero />
 
       {/* Stats / Trusted By Section */}
-      <div className="border-y border-border bg-card/50 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { label: 'Components', value: '50+' },
-              { label: 'Downloads', value: '10k+' },
-              { label: 'GitHub Stars', value: '2.5k' },
-              { label: 'Open Source', value: '100%' },
-            ].map((stat, i) => (
-              <div key={i}>
-                <div className="text-3xl md:text-4xl font-bold text-foreground mb-1">{stat.value}</div>
-                <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">{stat.label}</div>
+      <div className="border-y border-border bg-card/50 backdrop-blur-sm overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
+          {/* Marquee Effect */}
+          <div className="flex gap-12 animate-[shimmer_20s_linear_infinite] hover:[animation-play-state:paused] w-max">
+            {[...Array(2)].map((_, setIndex) => (
+              <div key={setIndex} className="flex gap-12 shrink-0">
+                {[
+                  { label: 'Components', value: '50+' },
+                  { label: 'Downloads', value: '10k+' },
+                  { label: 'GitHub Stars', value: '2.5k' },
+                  { label: 'Open Source', value: '100%' },
+                  { label: 'Community', value: '5k+' },
+                  { label: 'Updates', value: 'Weekly' },
+                ].map((stat, i) => (
+                  <div key={i} className="flex items-center gap-4 px-8 border-r border-border/50 last:border-0">
+                    <div className="text-3xl md:text-4xl font-bold text-foreground">{stat.value}</div>
+                    <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
+          
+          {/* Gradient Masks for Fade Effect */}
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent pointer-events-none" />
         </div>
       </div>
 
