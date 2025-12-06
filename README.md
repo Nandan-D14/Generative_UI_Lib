@@ -26,7 +26,7 @@ A premium collection of animated React components built with Tailwind CSS and Fr
     ```bash
     npm run dev
     ```
-
+---
 ## License
 
 MIT
