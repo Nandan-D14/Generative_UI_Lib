@@ -24,6 +24,7 @@ import { GlassCard } from '../components/lib/GlassCard';
 import { Dock } from '../components/lib/Dock';
 import { StarBorder } from '../components/lib/StarBorder';
 import { PropertyShowcaseCard } from '../components/lib/PropertyShowcaseCard';
+import { ModernCreativeDashboard } from '../components/lib/ModernCreativeDashboard';
 import { Artoo3D } from '../components/lib/Artoo3D';
 import { NebulaPortfolio } from '../components/lib/NebulaPortfolio';
 import { NebulaSwirl } from '../components/lib/NebulaSwirl';
@@ -46,6 +47,7 @@ import PayonHeroCode from '../components/lib/PayonHero.tsx?raw';
 import UnlimiHeroCode from '../components/lib/UnlimiHero.tsx?raw';
 import NebulaHeroCode from '../components/lib/NebulaHero.tsx?raw';
 import RoobertHeroCode from '../components/lib/RoobertHero.tsx?raw';
+import ModernCreativeDashboardCode from '../components/lib/ModernCreativeDashboard.tsx?raw';
 
 export const COMPONENT_REGISTRY: ComponentDoc[] = [
   {
@@ -165,6 +167,15 @@ export function Example() {
     component: GandomDashboard,
     props: [],
     code: GandomDashboardCode
+  },
+  {
+    slug: 'modern-creative-dashboard',
+    name: 'Modern Creative Dashboard',
+    description: 'A light-themed, creative project management dashboard with animated charts, team collaboration, and time tracking.',
+    category: 'Templates',
+    component: ModernCreativeDashboard,
+    props: [],
+    code: ModernCreativeDashboardCode
   },
   {
     slug: 'decrypted-text',
