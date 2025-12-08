@@ -47,6 +47,7 @@ import PayonHeroCode from '../components/lib/PayonHero.tsx?raw';
 import UnlimiHeroCode from '../components/lib/UnlimiHero.tsx?raw';
 import NebulaHeroCode from '../components/lib/NebulaHero.tsx?raw';
 import RoobertHeroCode from '../components/lib/RoobertHero.tsx?raw';
+import ModernCreativeDashboardCode from '../components/lib/ModernCreativeDashboard.tsx?raw';
 
 export const COMPONENT_REGISTRY: ComponentDoc[] = [
   {
@@ -174,25 +175,7 @@ export function Example() {
     category: 'Templates',
     component: ModernCreativeDashboard,
     props: [],
-    code: `// Modern Creative Dashboard - Full Template
-// A beautiful light-themed dashboard for project management
-
-import { ModernCreativeDashboard } from './components/lib/ModernCreativeDashboard';
-
-export function Example() {
-  return <ModernCreativeDashboard />;
-}
-
-// Features:
-// - Animated statistics cards
-// - Interactive bar charts
-// - Team collaboration section
-// - Real-time clock tracker
-// - Project progress visualization
-// - Reminder cards
-// - Responsive sidebar navigation
-// - Search functionality
-// - Notification badges`
+    code: ModernCreativeDashboardCode
   },
   {
     slug: 'decrypted-text',
