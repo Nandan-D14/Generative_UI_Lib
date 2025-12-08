@@ -24,6 +24,7 @@ import { GlassCard } from '../components/lib/GlassCard';
 import { Dock } from '../components/lib/Dock';
 import { StarBorder } from '../components/lib/StarBorder';
 import { PropertyShowcaseCard } from '../components/lib/PropertyShowcaseCard';
+import { ModernCreativeDashboard } from '../components/lib/ModernCreativeDashboard';
 import { Artoo3D } from '../components/lib/Artoo3D';
 import { NebulaPortfolio } from '../components/lib/NebulaPortfolio';
 import { NebulaSwirl } from '../components/lib/NebulaSwirl';
@@ -165,6 +166,33 @@ export function Example() {
     component: GandomDashboard,
     props: [],
     code: GandomDashboardCode
+  },
+  {
+    slug: 'modern-creative-dashboard',
+    name: 'Modern Creative Dashboard',
+    description: 'A light-themed, creative project management dashboard with animated charts, team collaboration, and time tracking.',
+    category: 'Templates',
+    component: ModernCreativeDashboard,
+    props: [],
+    code: `// Modern Creative Dashboard - Full Template
+// A beautiful light-themed dashboard for project management
+
+import { ModernCreativeDashboard } from './components/lib/ModernCreativeDashboard';
+
+export function Example() {
+  return <ModernCreativeDashboard />;
+}
+
+// Features:
+// - Animated statistics cards
+// - Interactive bar charts
+// - Team collaboration section
+// - Real-time clock tracker
+// - Project progress visualization
+// - Reminder cards
+// - Responsive sidebar navigation
+// - Search functionality
+// - Notification badges`
   },
   {
     slug: 'decrypted-text',
