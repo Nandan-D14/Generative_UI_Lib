@@ -50,8 +50,19 @@ import RoobertHeroCode from '../components/lib/RoobertHero.tsx?raw';
 import ModernCreativeDashboardCode from '../components/lib/ModernCreativeDashboard.tsx?raw';
 import { SpotifyDashboard } from '../components/lib/SpotifyDashboard';
 import SpotifyDashboardCode from '../components/lib/SpotifyDashboard.tsx?raw';
+import { DecksIntro } from '../components/lib/DecksIntro';
+import DecksIntroCode from '../components/lib/DecksIntro.tsx?raw';
 
 export const COMPONENT_REGISTRY: ComponentDoc[] = [
+  {
+    slug: 'decks-intro',
+    name: 'Decks Intro',
+    description: 'An AI-powered business model generation onboarding page with interactive forms and 3D visual elements.',
+    category: 'Templates',
+    component: DecksIntro,
+    props: [],
+    code: DecksIntroCode
+  },
   {
     slug: 'spotify-dashboard',
     name: 'Spotify Dashboard',

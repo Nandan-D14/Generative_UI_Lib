@@ -439,6 +439,11 @@ export const ComponentDetail: React.FC = () => {
                         <Component />
                      </div>
                    )}
+                   {componentData.slug === 'decks-intro' && (
+                     <div className="w-full h-[800px] overflow-y-auto rounded-xl border border-border bg-[#0A0A0A] relative text-white">
+                        <Component />
+                     </div>
+                   )}
                    {componentData.slug === 'roobert-hero' && (
                      <div className="w-full h-[800px] overflow-y-auto rounded-xl border border-border bg-[#EBEBED] relative text-black">
                         <Component />
@@ -501,7 +506,7 @@ export const ComponentDetail: React.FC = () => {
                         </Component>
                      </div>
                    )}
-                   {!['split-text', 'spotlight-card', 'tilted-card', 'button', 'input', 'badge', 'card', 'glowing-card', 'shimmer-button', 'parallax-card', 'typewriter-text', 'progress', 'property-showcase-card', 'animated-gradient', 'tabs', 'accordion', 'modal', 'tooltip', 'modern-saas', 'modern-creative-dashboard', 'gandom-dashboard', 'saaspo-landing', 'decrypted-text', 'gradient-text', 'glass-card', 'dock', 'star-border', 'artoo-3d', 'nebula-portfolio', 'nebula-swirl', 'chain-fund', 'nixt-node', 'payon-hero', 'unlimi-hero', 'nebula-hero', 'roobert-hero', 'spotify-dashboard'].includes(componentData.slug) && (
+                   {!['split-text', 'spotlight-card', 'tilted-card', 'button', 'input', 'badge', 'card', 'glowing-card', 'shimmer-button', 'parallax-card', 'typewriter-text', 'progress', 'property-showcase-card', 'animated-gradient', 'tabs', 'accordion', 'modal', 'tooltip', 'modern-saas', 'modern-creative-dashboard', 'gandom-dashboard', 'saaspo-landing', 'decrypted-text', 'gradient-text', 'glass-card', 'dock', 'star-border', 'artoo-3d', 'nebula-portfolio', 'nebula-swirl', 'chain-fund', 'nixt-node', 'payon-hero', 'unlimi-hero', 'nebula-hero', 'roobert-hero', 'spotify-dashboard', 'decks-intro'].includes(componentData.slug) && (
                      <div className="text-center text-muted-foreground">
                        <p className="mb-4">Preview not available for this component.</p>
                        <p className="text-sm">Check the code tab for usage examples.</p>
