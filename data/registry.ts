@@ -142,7 +142,7 @@ export const COMPONENT_REGISTRY: ComponentDoc[] = [
     category: 'Backgrounds',
     component: NebulaSwirl,
     props: [
-      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes for custom styling.' },
     ],
     code: NebulaSwirlCode
   },
@@ -208,7 +208,14 @@ export function Example() {
     props: [
       { name: 'text', type: 'string', description: 'The text to reveal.' },
       { name: 'speed', type: 'number', default: '50', description: 'Speed of character switching in ms.' },
+      { name: 'maxIterations', type: 'number', default: '10', description: 'Maximum number of iterations before the correct character is revealed.' },
+      { name: 'sequential', type: 'boolean', default: 'false', description: 'If true, reveals characters one by one instead of all at once.' },
+      { name: 'revealDirection', type: '"start" | "end" | "center"', default: 'start', description: 'Direction of the reveal animation.' },
+      { name: 'useOriginalCharsOnly', type: 'boolean', default: 'false', description: 'If true, only uses characters from the original text for scrambling.' },
+      { name: 'characters', type: 'string', description: 'Custom set of characters to use for scrambling.' },
       { name: 'animateOn', type: '"view" | "hover"', default: 'hover', description: 'When to trigger the animation.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
+      { name: 'parentClassName', type: 'string', description: 'Class names for the container span.' },
     ],
     code: `import { DecryptedText } from './DecryptedText';
 
@@ -229,8 +236,11 @@ export function Example() {
     category: 'Text Animations',
     component: GradientText,
     props: [
-      { name: 'colors', type: 'string[]', description: 'Array of colors for the gradient.' },
+      { name: 'children', type: 'ReactNode', description: 'Content to render inside the text component.' },
+      { name: 'colors', type: 'string[]', default: "['#FF0B55', '#FFDEDE', '#CF0F47', '#FF0B55']", description: 'Array of colors for the gradient.' },
       { name: 'animationSpeed', type: 'number', default: '3', description: 'Speed of the animation in seconds.' },
+      { name: 'showBorder', type: 'boolean', default: 'false', description: 'Whether to show a border around the text.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { GradientText } from './GradientText';
 
@@ -252,8 +262,11 @@ export function Example() {
     category: 'UI Components',
     component: GlassCard,
     props: [
-      { name: 'opacity', type: 'number', default: '0.1', description: 'Opacity of the glass background.' },
+      { name: 'children', type: 'ReactNode', description: 'Content of the card.' },
+      { name: 'opacity', type: 'number', default: '0.1', description: 'Opacity of the glass background (0-1).' },
       { name: 'blur', type: 'number', default: '10', description: 'Blur amount in pixels.' },
+      { name: 'border', type: 'boolean', default: 'true', description: 'Whether to show a subtle border.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { GlassCard } from './GlassCard';
 
@@ -273,7 +286,8 @@ export function Example() {
     category: '3D & Interactive',
     component: Dock,
     props: [
-      { name: 'items', type: 'Array', description: 'Array of items with icon and label.' },
+      { name: 'items', type: '{ icon: ReactNode, label: string, onClick?: () => void }[]', description: 'Array of items to display in the dock.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { Dock } from './Dock';
 import { Home, User, Settings, Mail } from 'lucide-react';
@@ -296,8 +310,11 @@ export function Example() {
     category: 'UI Components',
     component: StarBorder,
     props: [
+      { name: 'children', type: 'ReactNode', description: 'Content to be wrapped by the border.' },
       { name: 'color', type: 'string', default: 'white', description: 'Color of the star tail.' },
-      { name: 'speed', type: 'string', default: '6s', description: 'Animation duration.' },
+      { name: 'speed', type: 'string', default: '6s', description: 'Animation duration (e.g., "6s").' },
+      { name: 'as', type: 'ElementType', default: 'button', description: 'Polymorphic component to render as (e.g., "div", "button").' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { StarBorder } from './StarBorder';
 
@@ -368,6 +385,7 @@ export function Example() {
       { name: 'children', type: 'ReactNode', description: 'Content of the card.' },
       { name: 'rotateAmplitude', type: 'number', default: '15', description: 'Maximum rotation angle in degrees.' },
       { name: 'scaleOnHover', type: 'number', default: '1.05', description: 'Scale factor when hovering.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { TiltedCard } from './TiltedCard';
 
@@ -389,11 +407,13 @@ export function Example() {
     category: 'UI Components',
     component: Button,
     props: [
+      { name: 'children', type: 'ReactNode', description: 'Button content.' },
       { name: 'variant', type: '"default" | "destructive" | "outline" | "secondary" | "ghost" | "link"', default: 'default', description: 'Visual style variant.' },
       { name: 'size', type: '"default" | "sm" | "lg" | "icon"', default: 'default', description: 'Button size.' },
-      { name: 'isLoading', type: 'boolean', description: 'Shows loading spinner.' },
-      { name: 'disabled', type: 'boolean', description: 'Disables the button.' },
-      { name: 'children', type: 'ReactNode', description: 'Button content.' },
+      { name: 'isLoading', type: 'boolean', default: 'false', description: 'Shows loading spinner.' },
+      { name: 'disabled', type: 'boolean', default: 'false', description: 'Disables the button.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
+      { name: 'onClick', type: '() => void', description: 'Click handler.' },
     ],
     code: `// Installation: Copy the Button component to your project
 // Dependencies: framer-motion, lucide-react, tailwind-merge
@@ -449,6 +469,10 @@ function FormExample() {
       { name: 'icon', type: 'ReactNode', description: 'Icon to display on the left.' },
       { name: 'type', type: 'string', default: 'text', description: 'Input type (text, email, password, etc.).' },
       { name: 'placeholder', type: 'string', description: 'Placeholder text.' },
+      { name: 'value', type: 'string | number', description: 'Input value.' },
+      { name: 'onChange', type: '(e: ChangeEvent) => void', description: 'Change handler.' },
+      { name: 'disabled', type: 'boolean', description: 'Whether the input is disabled.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `// Installation: Copy the Input component to your project
 // Dependencies: lucide-react, tailwind-merge
@@ -543,7 +567,9 @@ function FormExample() {
     category: 'UI Components',
     component: Badge,
     props: [
+      { name: 'children', type: 'ReactNode', description: 'Badge content.' },
       { name: 'variant', type: '"default" | "secondary" | "success" | "warning" | "destructive" | "outline"', default: 'default', description: 'Badge color variant.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { Badge } from './Badge';
 
@@ -565,7 +591,9 @@ export function Example() {
     category: 'UI Components',
     component: Card,
     props: [
+      { name: 'children', type: 'ReactNode', description: 'Card content.' },
       { name: 'hover', type: 'boolean', default: 'false', description: 'Enable hover animation.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { Card, CardHeader, CardTitle, CardDescription, CardContent } from './Card';
 
@@ -592,6 +620,7 @@ export function Example() {
     props: [
       { name: 'tabs', type: 'Tab[]', description: 'Array of tab objects with id, label, and content.' },
       { name: 'defaultTab', type: 'string', description: 'ID of the default active tab.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { Tabs } from './Tabs';
 
@@ -611,8 +640,9 @@ export function Example() {
     category: 'UI Components',
     component: Accordion,
     props: [
-      { name: 'items', type: 'AccordionItem[]', description: 'Array of accordion items.' },
-      { name: 'allowMultiple', type: 'boolean', default: 'false', description: 'Allow multiple items to be open.' },
+      { name: 'items', type: 'AccordionItem[]', description: 'Array of accordion items with id, title, and content.' },
+      { name: 'allowMultiple', type: 'boolean', default: 'false', description: 'Allow multiple items to be open at once.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { Accordion } from './Accordion';
 
@@ -632,7 +662,9 @@ export function Example() {
     category: '3D & Interactive',
     component: GlowingCard,
     props: [
+      { name: 'children', type: 'ReactNode', description: 'Card content.' },
       { name: 'glowColor', type: 'string', default: '#8b5cf6', description: 'Color of the glow effect.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { GlowingCard } from './GlowingCard';
 
@@ -652,7 +684,11 @@ export function Example() {
     category: '3D & Interactive',
     component: AnimatedGradient,
     props: [
+      { name: 'children', type: 'ReactNode', description: 'Content to render over the gradient.' },
       { name: 'colors', type: 'string[]', default: "['#8b5cf6', '#3b82f6', '#ec4899']", description: 'Array of gradient colors.' },
+      { name: 'speed', type: 'number', default: '5', description: 'Animation speed in seconds.' },
+      { name: 'blur', type: 'string', default: 'blur(100px)', description: 'Blur amount for the gradient.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { AnimatedGradient } from './AnimatedGradient';
 
@@ -672,7 +708,10 @@ export function Example() {
     category: '3D & Interactive',
     component: ShimmerButton,
     props: [
+      { name: 'children', type: 'ReactNode', description: 'Button content.' },
       { name: 'shimmerColor', type: 'string', default: 'rgba(255, 255, 255, 0.3)', description: 'Color of the shimmer effect.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
+      { name: 'onClick', type: '() => void', description: 'Click handler.' },
     ],
     code: `import { ShimmerButton } from './ShimmerButton';
 
@@ -691,7 +730,9 @@ export function Example() {
     category: '3D & Interactive',
     component: ParallaxCard,
     props: [
+      { name: 'children', type: 'ReactNode', description: 'Content of the card.' },
       { name: 'intensity', type: 'number', default: '20', description: 'Intensity of the parallax effect.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { ParallaxCard } from './ParallaxCard';
 
@@ -714,6 +755,8 @@ export function Example() {
       { name: 'text', type: 'string', description: 'The text to type out.' },
       { name: 'speed', type: 'number', default: '50', description: 'Typing speed in milliseconds.' },
       { name: 'cursor', type: 'boolean', default: 'true', description: 'Show typing cursor.' },
+      { name: 'onComplete', type: '() => void', description: 'Callback when typing finishes.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { TypewriterText } from './TypewriterText';
 
@@ -737,7 +780,11 @@ export function Example() {
       { name: 'isOpen', type: 'boolean', description: 'Controls modal visibility.' },
       { name: 'onClose', type: '() => void', description: 'Callback when modal closes.' },
       { name: 'title', type: 'string', description: 'Modal title.' },
+      { name: 'children', type: 'ReactNode', description: 'Modal content.' },
       { name: 'size', type: '"sm" | "md" | "lg" | "xl"', default: 'md', description: 'Modal size.' },
+      { name: 'showCloseButton', type: 'boolean', default: 'true', description: 'Whether to show the close button.' },
+      { name: 'align', type: '"center" | "top"', default: 'center', description: 'Vertical alignment of the modal.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { Modal } from './Modal';
 import { useState } from 'react';
@@ -763,7 +810,9 @@ export function Example() {
     component: Tooltip,
     props: [
       { name: 'content', type: 'ReactNode', description: 'Tooltip content.' },
+      { name: 'children', type: 'ReactNode', description: 'Element to trigger the tooltip.' },
       { name: 'position', type: '"top" | "bottom" | "left" | "right"', default: 'top', description: 'Tooltip position.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { Tooltip } from './Tooltip';
 
@@ -782,10 +831,12 @@ export function Example() {
     category: 'UI Components',
     component: Progress,
     props: [
-      { name: 'value', type: 'number', description: 'Current progress value.' },
+      { name: 'value', type: 'number', description: 'Current progress value (0-100).' },
       { name: 'max', type: 'number', default: '100', description: 'Maximum value.' },
       { name: 'variant', type: '"default" | "success" | "warning" | "danger"', default: 'default', description: 'Color variant.' },
       { name: 'showLabel', type: 'boolean', default: 'false', description: 'Show percentage label.' },
+      { name: 'animated', type: 'boolean', default: 'true', description: 'Whether to animate the progress bar width.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `import { Progress } from './Progress';
 
@@ -814,6 +865,7 @@ export function Example() {
       { name: 'isFavorite', type: 'boolean', default: 'false', description: 'Whether property is favorited.' },
       { name: 'onFavoriteClick', type: '() => void', description: 'Callback when favorite button is clicked.' },
       { name: 'onReserveClick', type: '() => void', description: 'Callback when reserve button is clicked.' },
+      { name: 'className', type: 'string', description: 'Additional CSS classes.' },
     ],
     code: `// Installation: Copy the PropertyShowcaseCard component to your project
 // Dependencies: framer-motion, lucide-react, tailwind-merge
